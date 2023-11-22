@@ -15,6 +15,7 @@ import useAuth from './hooks/useAuth';
 
 function App() {
   const dispatch = useDispatch<ThunkDispatch<{ auth: RootState }, undefined, AnyAction>>(); 
+  const isAuth = useAuth();
 
   useEffect(() => {
     const cleanup = setupInterceptors(store);
@@ -22,14 +23,13 @@ function App() {
     return cleanup;
   }, [dispatch]);
 
-  return (
+   return (
     <Routes>
-      <Route path={Pages.LOGIN_PAGE} Component={LoginPage}/>
-      <Route path={Pages.REGISTER_PAGE} Component={RegisterPage}/>
-      <Route Component={ProtectedRoute}>
-        <Route path={Pages.IMAGE_PAGE} Component={ImagePage}/>
+      <Route path={Pages.LOGIN_PAGE} element={<LoginPage />} />
+      <Route path={Pages.REGISTER_PAGE} element={<RegisterPage />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path={Pages.IMAGE_PAGE} element={<ImagePage />} />
       </Route>
-
     </Routes>
   );
 };

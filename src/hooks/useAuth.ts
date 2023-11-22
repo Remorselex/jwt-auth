@@ -4,12 +4,8 @@ import { useEffect } from "react";
 
 
 export const useAuth = () => {
-  const { token } = useSelector(authSelector);
-
-  return {
-    isAuth: !!token,
-    token,
-  }
+  const { isAuthenticated } = useSelector(authSelector);
+  return isAuthenticated;
 }
 
 export default useAuth;

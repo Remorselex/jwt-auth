@@ -7,6 +7,7 @@ interface Photo {
 }
 
 const ImagePage: React.FC = () => {
+  //мока ответ с бэка
   const initialPhotos: Photo[] = [
     {
       id: 1,
@@ -35,9 +36,23 @@ const ImagePage: React.FC = () => {
     },
   ];
 
+  const container = {
+    display: 'grid',
+    gridGap: 20,
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    maxWidth: '900px'
+  }
 
   return (
-    <div>
+    <div style={container}>
+      {initialPhotos.map((item) => (
+        <div key={item.id + item.title}>
+          <img src={item.url} width={300} alt="img"/>
+          <p onClick={() => console.log('запрос на на редактирование к api')}>{item.title}</p>
+        </div>
+      ))}
     </div>
   );
 };
