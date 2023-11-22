@@ -2,14 +2,13 @@ import React from 'react';
 import FormComponent from './FormComponent';
 import { login } from '../store/authSlice/authSlice';
 import { useDispatch } from 'react-redux';
-import {RootState } from '../store/store';
-import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 import { Pages } from '../pages/constants/pages';
 import { useNavigate } from 'react-router';
+import { AppThunkDispatch } from '../api/services/types/types';
 
 
 const LoginForm: React.FC = () => {
-  const dispatch = useDispatch<ThunkDispatch<{ auth: RootState }, undefined, AnyAction>>(); 
+  const dispatch: AppThunkDispatch = useDispatch(); 
   const navigate = useNavigate();
   
   const handleLogin = (email: string, password: string) => {

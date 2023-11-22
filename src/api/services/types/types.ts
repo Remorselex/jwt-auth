@@ -1,5 +1,4 @@
-import { ThunkDispatch as ReduxThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
+import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 import { RootState } from '../../../store/store';
 
 export interface IUser {
@@ -14,4 +13,4 @@ export interface AuthResponce {
   user: IUser;
 }
 
-export type AppThunkDispatch = ReduxThunkDispatch<{ auth: RootState }, undefined, AnyAction>;
+export type AppThunkDispatch = ThunkDispatch<RootState, undefined, AnyAction>;

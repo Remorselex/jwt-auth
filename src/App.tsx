@@ -7,15 +7,12 @@ import ImagePage from './pages/ImagePage';
 import ProtectedRoute from './components/ProtectedRoute';
 import { useDispatch } from 'react-redux';
 import { refreshToken } from './store/authSlice/authSlice';
-import { AnyAction } from 'redux';
-import { ThunkDispatch } from 'redux-thunk';
-import { RootState, store } from './store/store';
+import { store } from './store/store';
 import setupInterceptors from './api/SetupInterceptors';
-import useAuth from './hooks/useAuth';
+import { AppThunkDispatch } from './api/services/types/types';
 
 function App() {
-  const dispatch = useDispatch<ThunkDispatch<{ auth: RootState }, undefined, AnyAction>>(); 
-  const isAuth = useAuth();
+  const dispatch: AppThunkDispatch  = useDispatch(); 
 
   useEffect(() => {
     const cleanup = setupInterceptors(store);
