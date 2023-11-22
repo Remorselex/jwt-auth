@@ -4,7 +4,8 @@ export interface IUser {
 }
 
 export interface AuthResponce {
-  token: string;
+  isAuthenticated: boolean;
+  accessToken: string;
   refreshToken: string;
   user: IUser;
 }

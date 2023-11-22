@@ -5,7 +5,6 @@ import { useEffect } from "react";
 
 export const useAuth = () => {
   const { token } = useSelector(authSelector);
-  useEffect(() => console.log(token));
 
   return {
     isAuth: !!token,

@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios";
-import api from "../intex";
+import api from "../AxiosClient";
 
 interface Icomment {
   userName: string;
